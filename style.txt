@@ -1,0 +1,61 @@
+$place() bgPlace{
+    position:(0,0)
+    place.rougres:20
+    place.color:(200,200,200)
+    place.width:win.width
+    place.height:win.height
+    place.on.window:None
+}
+
+$place() UpPlace:bgPlace{
+    position:(0,0)
+    place.color:(150,100,200)
+    place.rougres:20
+    place.width:500
+    place.height:400
+    place.on.place:center top
+    place.outline.size:5
+    place.outline.color:(200,150,250)
+}
+
+$place() UpPlac:UpPlace{
+    position:(0,0)
+    place.on.place:center down
+    place.width:490
+    place.color:(100,50,150)
+    place.rougres:15
+    place.on.place.dy:-5
+    
+}
+
+$text() t1:UpPlace{
+    text:My style language!
+    text.on.place:top center
+    text.on.place.dy:10
+    text.color:(255,255,255)
+    text.font.size:50
+    text.font:calibri
+}
+
+$text() t2:UpPlac{
+    text:By DEVER
+    text.on.place:right down
+    text.on.place.dy:10
+    text.color:(100,50,150)
+    text.font.size:30
+    text.font:calibri
+    text.outline:1
+    text.outline.size:2
+    text.outline.color:(0,0,10)
+    text.on.place.dy:0
+    text.on.place.dx:-10
+}
+
+$button() b1{
+    position:(10,10)
+    bt.width:200
+    bt.height:100
+    bt.color:(150,50,255)
+    bt.release.color:(50,100,150)
+    bt.rougres:defold-10 press-10 releas-10
+}
