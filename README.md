@@ -194,6 +194,124 @@ $text() t1{
 };
 ```
 
+Тоесть эти атрибуты будут так сказать 'изьяты' из переменной ```text_style```. Но мы можем их пропускать и использовать локальные атрибуты, это можно сделать поставив перед атрибутом ```*```.
+```ruby
+$button() b4{
+    position:(0,750)
+    style:bt_style
+    *bt.color:rgb(100,150,255)
+    *bt.release.color:rgb(100,100,255)
+    *bt.press.color:rgb(100,50,255)
+    position.y:bt-height*3
+};
+```
+
+В новой версии также была добавлена возможность создания комментариев и заккоментирования необходимого куска кода.
+
+При помощи ```<<``` и ```>>```.
+```ruby
+@var bt_color = rgb(200,100,100);
+@var bt_releas_color = rgb(150,50,50);
+@var bt_press_color = rgb(100,30,30);
+
+@var bt-width = win.width/4;
+@var bt-height = win.height/4;
+@var bt_rougres = 10;
+
+@var text_font_size = 55;
+@var btanim = !sizer() end_width=winwidth/4 delta=0.05 end_height=winheight;
+
+<<Это закоментированный кусок кода>>
+<<@var btonwin = down;>>
+
+
+
+@style bt_style{
+    bt.color:bt_color
+    bt.press.color:bt_press_color
+    bt.release.color:bt_releas_color
+    bt.width:bt-width
+    bt.height:bt-height
+    bt.outline.size: defold-1 releas-3 press-5
+    bt.outline.color:rgb(0,0,0)
+    bt.rougres: defold-50 press-50 releas-50
+    animate:btanim
+    bt.on.window:btonwin
+};
+
+@style text_style{
+    position:(0,0)
+    text.font.size:text_font_size
+    text.on.place:center down
+    text.color:rgb(1,0,0)
+};
+
+
+$button() b1{
+    position:(0,0)
+    position.y:0
+    position.x:bt-width*1
+    style:bt_style
+    *bt.color:rgb(100,250,100)
+    *bt.release.color:rgb(50,200,100)
+    *bt.press.color:rgb(25,150,100)
+};
+$button() b2{
+    position:(0,0)
+    position.x:bt-width*2
+    style:bt_style
+    *bt.color:rgb(255,250,100)
+    *bt.release.color:rgb(200,200,100)
+    *bt.press.color:rgb(150,150,100)
+};
+$button() b3{
+    position:(0,500)
+    style:bt_style
+    position.x:bt-width*3
+};
+$button() b4{
+    position:(0,750)
+    style:bt_style
+    *bt.color:rgb(100,150,255)
+    *bt.release.color:rgb(100,100,255)
+    *bt.press.color:rgb(100,50,255)
+    position.y:bt-height*3
+};
+
+$text() t1:b1{
+    text:1 
+    style:text_style
+};
+
+$text() t2:b2{
+    text:1 
+    style:text_style
+};
+
+<<Это тоже закоментированный кусок кода.>>
+<<
+$text() t3:b3{
+    text:1 
+    style:text_style
+};
+
+$text() t4:b4{
+    text:1 
+    style:text_style
+};
+>>
+
+
+$text() loh{
+    text:Button test v0.1
+    position:(0,0)
+    text.font.size:100
+    text.font:calibri
+    text.on.window:center
+    text.color:rgb(255,255,255)
+};
+
+```
 
 
 
